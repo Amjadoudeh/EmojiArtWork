@@ -23,7 +23,7 @@ struct EmojiArtWorkModel {
         let id: Int
         
         
-        // to make the id accessable we have to create an init has the exact same vars and asigin the valuse exactly the same as well. so we make fileprivate
+        // to make the id accessible we have to create an init has the exact same vars and assigin the values exactly the same as well. so we make fileprivate
         fileprivate init(text: String, x: Int, y: Int, size: Int, id: Int){
             self.text = text
             self.x = x
@@ -34,7 +34,7 @@ struct EmojiArtWorkModel {
     }
     
     init() { }
-    // a function to add Emoij to the Model
+    // a function to add Emoji to the Model
     private var uniqueEmojiId = 0
     mutating func addEmoji(_ text: String, at location: (x:Int , y:Int), size: Int) {
         uniqueEmojiId += 1
