@@ -3,7 +3,7 @@
 //  EmojiArtWork
 //
 //  Created by Amjad Oudeh on 03.01.22.
-//
+// Model :)
 
 import Foundation
 
@@ -39,14 +39,6 @@ struct EmojiArtWorkModel {
     mutating func addEmoji(_ text: String, at location: (x:Int , y:Int), size: Int) {
         uniqueEmojiId += 1
         emojis.append(Emoji(text: text, x:  location.x, y: location.y, size: size, id: uniqueEmojiId))
-    }
-    
-    // the background could be blank or link (url) or ImageData(typical image)
-    
-    enum Background {
-        case blank
-        case url
-        case imageData
     }
 }
 
