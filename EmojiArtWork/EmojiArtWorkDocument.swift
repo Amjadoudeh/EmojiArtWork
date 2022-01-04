@@ -41,6 +41,13 @@ class EmojiArtWorkDocument: ObservableObject {
         }
     }
     
-    
+    // a function to Scale the Emoji
+    // NOTE: the index(matching:) function we are going to use here is from the Utility Extensions file that we added
+    func scaleEmoji(_ emoji: EmojiArtWorkModel.Emoji, by scale: CGFloat) {
+        if let index = emojiArtWork.emojis.index(matching: emoji) {
+            emojiArtWork.emojis[index].size =
+            Int((CGFloat(emojiArtWork.emojis[index].size) * scale).rounded(.toNearestOrAwayFromZero))
+        }
+    }
     
 }
