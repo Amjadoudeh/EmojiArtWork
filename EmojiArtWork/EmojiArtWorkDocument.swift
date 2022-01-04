@@ -27,5 +27,9 @@ class EmojiArtWorkDocument: ObservableObject {
         emojiArtWork.background = background
     }
     
+    // a function to add an Emoji
+    func addEmoji(_ emoji: String, at location: (x:Int, y:Int), size: CGFloat) {
+        emojiArtWork.addEmoji(emoji, at: location, size: Int(size))
+    }
     
 }
