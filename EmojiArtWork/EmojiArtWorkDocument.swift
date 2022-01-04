@@ -32,4 +32,15 @@ class EmojiArtWorkDocument: ObservableObject {
         emojiArtWork.addEmoji(emoji, at: location, size: Int(size))
     }
     
+    // a function to move the Emoji on the screen
+    // NOTE: the index(matching:) function we are going to use here is from the Utility Extensions file that we added
+    func moveEmoji(_ emoji: EmojiArtWorkModel.Emoji, by offset: CGSize) {
+        if let index = emojiArtWork.emojis.index(matching: emoji) {
+            emojiArtWork.emojis[index].x += Int(offset.width)
+            emojiArtWork.emojis[index].y += Int(offset.height)
+        }
+    }
+    
+    
+    
 }
