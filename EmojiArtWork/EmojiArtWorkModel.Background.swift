@@ -15,7 +15,7 @@ extension EmojiArtWorkModel {
         case blank
         case url(URL)
         case imageData(Data)
-    
+        
         // making the url an optoinal -> so if there is an URL , it will display it, but if not it will return blank
         var url: URL? {
             switch self {
