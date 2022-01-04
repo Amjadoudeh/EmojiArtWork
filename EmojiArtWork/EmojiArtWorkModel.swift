@@ -13,7 +13,7 @@ struct EmojiArtWorkModel {
     var background =  Background.blank
     var emojis = [Emoji]()
     
-    struct Emoji: Identifiable {
+    struct Emoji: Identifiable, Hashable {
         // text for the emoji shape
         let text: String
         // the position and the size
