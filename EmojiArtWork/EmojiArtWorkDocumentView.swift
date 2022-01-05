@@ -12,6 +12,10 @@ struct EmojiArtWorkDocumentView: View {
     // have to added the ViewModel as @ObservedObject first
     @ObservedObject var document: EmojiArtWorkDocument
     
+    // change the size of the Emojis
+    let defualEmojiFontSize: CGFloat = 40
+    
+    
     var body: some View {
         VStack(spacing: 0) {
             documentBody
@@ -26,6 +30,7 @@ struct EmojiArtWorkDocumentView: View {
     // the palette
     var palette: some View {
         ScrollingEmojisView(emojis: testEmojis)
+            .font(.system(size: defualEmojiFontSize))
     }
     
     let testEmojis = "😀😷🦠💉👻👀🐶🌲🌎🌞🔥🍎⚽️🚗🚓🚲🛩🚁🚀🛸🏠⌚️🎁🗝🔐❤️⛔️❌❓✅⚠️🎶➕➖🏳️"
