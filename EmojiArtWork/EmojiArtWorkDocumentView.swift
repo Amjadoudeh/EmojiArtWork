@@ -25,15 +25,27 @@ struct EmojiArtWorkDocumentView: View {
     
     // the palette
     var palette: some View {
-        ScrollingEmojisView(emojis: testemojis)
+        ScrollingEmojisView(emojis: testEmojis)
     }
     
     let testEmojis = "😀😷🦠💉👻👀🐶🌲🌎🌞🔥🍎⚽️🚗🚓🚲🛩🚁🚀🛸🏠⌚️🎁🗝🔐❤️⛔️❌❓✅⚠️🎶➕➖🏳️"
     
 }
 
-
-
+struct ScrollingEmojisView: View {
+    
+    let emojis: String
+    var body: some View {
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach(emojis.map { String($0)}, id: \.self) {emoji in
+                    Text(emoji)
+                    
+                }
+            }
+        }
+    }
+}
 
 
 
