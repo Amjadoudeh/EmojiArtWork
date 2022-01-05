@@ -17,8 +17,8 @@ struct EmojiArtWorkModel {
         // text for the emoji shape
         let text: String
         // the position and the size
-        var x: Int
-        var y: Int
+        var x: Int // offset from the center
+        var y: Int // offset from the center
         var size: Int
         let id: Int
         

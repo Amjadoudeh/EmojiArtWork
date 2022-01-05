@@ -29,6 +29,7 @@ struct EmojiArtWorkDocumentView: View {
             ForEach(document.emojis) { emoji in
                 Text(emoji.text)
                     .font(.system(size: fontSize(for: emoji)))
+                    .position(position(for: emoji))
             }
         }
     }
@@ -36,8 +37,22 @@ struct EmojiArtWorkDocumentView: View {
     // a function for the Size - fontSize
     private func fontSize(for emoji: EmojiArtWorkModel.Emoji) -> CGFloat {
         CGFloat(emoji.size)
+    }
+    
+    // a function for the position
+    private func position(for emoji: EmojiArtWorkModel.Emoji) -> CGPoint {
         
     }
+    
+    // a function to convert from the Emoji coordinates to my UI view coordinates
+    private func convertFromEmojiCoordinates(_ location: (x: Int, y: Int)) -> CGPoint {
+        let center = 
+        return CGPoint(
+            x:center.x + CGFloat(location.x),
+            y:center.y + CGFloat(location.y)
+        )
+    }
+    
     
     // the palette
     var palette: some View {
