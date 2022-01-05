@@ -24,29 +24,34 @@ struct EmojiArtWorkDocumentView: View {
     }
     // the documentBody
     var documentBody: some View {
+        GeometryReader { geometry in
+            
+        
         ZStack {
             Color.yellow
             ForEach(document.emojis) { emoji in
                 Text(emoji.text)
                     .font(.system(size: fontSize(for: emoji)))
-                    .position(position(for: emoji))
+                    .position(position(for: emoji, in geometry))
             }
         }
     }
-    
+    }
     // a function for the Size - fontSize
     private func fontSize(for emoji: EmojiArtWorkModel.Emoji) -> CGFloat {
         CGFloat(emoji.size)
     }
     
     // a function for the position
-    private func position(for emoji: EmojiArtWorkModel.Emoji) -> CGPoint {
+    private func position(for emoji: EmojiArtWorkModel.Emoji, in geometry: GeometryProxy) -> CGPoint {
         
     }
     
     // a function to convert from the Emoji coordinates to my UI view coordinates
-    private func convertFromEmojiCoordinates(_ location: (x: Int, y: Int)) -> CGPoint {
-        let center = 
+    private func convertFromEmojiCoordinates(_ location: (x: Int, y: Int), in geometry: GeometryProxy) -> CGPoint {
+        
+    // we need geometry proxy to know where our center is
+        let center = geometry.frame(in: .local).center
         return CGPoint(
             x:center.x + CGFloat(location.x),
             y:center.y + CGFloat(location.y)
