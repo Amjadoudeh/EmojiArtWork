@@ -13,10 +13,39 @@ struct EmojiArtWorkDocumentView: View {
     @ObservedObject var document: EmojiArtWorkDocument
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack(spacing: 0) {
+            documentBody
+            palette
+        }
     }
+    // the documentBody
+    var documentBody: some View {
+        Color.yellow
+    }
+    
+    // the palette
+    var palette: some View {
+        ScrollingEmojisView(emojis: testemojis)
+    }
+    
+    let testEmojis = "😀😷🦠💉👻👀🐶🌲🌎🌞🔥🍎⚽️🚗🚓🚲🛩🚁🚀🛸🏠⌚️🎁🗝🔐❤️⛔️❌❓✅⚠️🎶➕➖🏳️"
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
