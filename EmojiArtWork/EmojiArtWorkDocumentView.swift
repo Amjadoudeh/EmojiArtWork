@@ -35,9 +35,23 @@ struct EmojiArtWorkDocumentView: View {
                     .position(position(for: emoji, in: geometry))
             }
         }
-//        .onDrag(of: [.plainText], isTargeted: nil)
+        .onDrag(of: [.plainText], isTargeted: nil) { providers , location in  return drop(providers, at: location) }
     }
+}
+
+    // a function to drop the Emoji on the screen
+    private func drop(providers: [NSItemProvider], at location: CGPoint) -> Bool {
+        return providers.loadObjects(ofType: String.self) { string in
+            if let emoji = string.first, emoji.isEmoji {
+                document.addEmoji(
+                    String(emoji),
+                    at: convertFromEmojiCoordinates(location),
+                    size: defualEmojiFontSize)
+            }
+           
+        }
     }
+    
     // a function for the Size - fontSize
     private func fontSize(for emoji: EmojiArtWorkModel.Emoji) -> CGFloat {
         CGFloat(emoji.size)
