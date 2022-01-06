@@ -32,7 +32,7 @@ struct EmojiArtWorkDocumentView: View {
             ForEach(document.emojis) { emoji in
                 Text(emoji.text)
                     .font(.system(size: fontSize(for: emoji)))
-                    .position(position(for: emoji, in geometry))
+                    .position(position(for: emoji, in: geometry))
             }
         }
     }
@@ -44,6 +44,7 @@ struct EmojiArtWorkDocumentView: View {
     
     // a function for the position
     private func position(for emoji: EmojiArtWorkModel.Emoji, in geometry: GeometryProxy) -> CGPoint {
+        convertFromEmojiCoordinates((emoji.x, emoji.y), in: geometry)
         
     }
     
